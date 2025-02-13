@@ -1,0 +1,48 @@
+import java.util.Arrays;
+
+/*
+ * Activity 3.8.1
+ */
+public class TileTester {
+    private static String[] tileValues = {
+        "lion",    "lion",
+        "penguin", "penguin",
+        "dolphin", "dolphin",
+        "fox",     "fox",
+        "monkey",  "monkey",
+        "turtle",  "turtle"
+    };
+
+    public static void main(String[] args) {
+        // Step 1: Create the gameboard (3 rows, 4 columns)
+        Tile[][] gameboard = new Tile[3][4];
+
+        // Step 2: Populate the gameboard with values from tileValues
+        int index = 0;
+        for (int row = 0; row < gameboard.length; row++) {
+            for (int col = 0; col < gameboard[row].length; col++) {
+                gameboard[row][col] = new Tile(tileValues[index]);
+                index++;
+            }
+        }
+
+        // Step 3: Display each row of the gameboard
+        for (int row = 0; row < gameboard.length; row++) {
+            System.out.println(Arrays.toString(gameboard[row]));
+        }
+    }
+}
+
+// Helper class for Tile
+class Tile {
+    private String value;
+
+    public Tile(String value) {
+        this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return value;
+    }
+}
